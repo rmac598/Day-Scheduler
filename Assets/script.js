@@ -41,7 +41,7 @@ $(function () {
 
  var arr = []
 
- let saveproject = localStorage.getItem("project")||[]
+ //let saveproject = localStorage.getItem("project",JSON.stringify(arr))||[]
  
 $(".saveBtn").on("click", function () {
   var block = $(this).siblings("textarea").val();
@@ -60,7 +60,7 @@ arr.push(usersnotes)
 
 
   localStorage.setItem("project",JSON.stringify(arr));
-
+  //localStorage.getItem("project",JSON.stringify(arr));
   
    
     })
@@ -75,8 +75,9 @@ function useTask() {
     var currTask = localStorage.getItem(currHour);
 
     if (currTask !== null) {
-     // $(this).siblings("textarea").val(currTask);
-     $(this).saveproject;
+     $(this).siblings("description").val(currTask);
+     localStorage.getItem("project",JSON.stringify(arr));
+  
     }
   });
 }
