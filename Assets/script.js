@@ -6,14 +6,14 @@ var timeDisplayEl = $('#currentDay');
 // in the html.
 $(function () {
 
-  var timeDisplayEl = $('#currentDay');
+  /*var timeDisplayEl = $('#currentDay');
 
   function displayTime() {
     var rightNow = dayjs().format('MMM DD, YYYY [at] hh:mm:ss a');
     timeDisplayEl.text(rightNow);
   }
   
-  setInterval(displayTime, 1000);
+  setInterval(displayTime, 1000);*/
   
   //if (rightNow === "#"
 
@@ -82,6 +82,15 @@ function useTask() {
   });
 }
 useTask();
+
+var timeDisplayEl = $('#currentDay');
+
+  function displayTime() {
+    var rightNow = dayjs().format('MMM DD, YYYY [at] hh:mm:ss a');
+    timeDisplayEl.text(rightNow);
+  }
+  
+  setInterval(displayTime, 1000);
 
 /*function savetopage(){
   $(".hour").each(function () {
