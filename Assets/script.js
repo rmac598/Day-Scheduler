@@ -13,7 +13,10 @@ $(function () {
     timeDisplayEl.text(rightNow);
   }
   
-  displayTime();
+  setInterval(displayTime, 1000);
+  
+  //if (rightNow === "#"
+
   
   
   // TODO: Add a listener for click events on the save button. This code should
@@ -35,20 +38,58 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
   
-  
- //var arr = [ ]
- let arr = localStorage.getItem("project")||[];
 
+ var arr = []
+
+ let saveproject = localStorage.getItem("project")||[]
+ 
 $(".saveBtn").on("click", function () {
   var block = $(this).siblings("textarea").val();
   console.log($(this).siblings("textarea").val());
-var usersnotes = {
+  var usersnotes = {
   time: $(this).siblings("div").text(),
     text: block
   }
 arr.push(usersnotes)
+/*saveBtn.on("click", function() {
+  var time = $(this).siblings(".hour").text();
+  var task = $(this).siblings(".description").val();
+
+  localStorage.setItem(time, task);
+  localStorage.getItem(time, task);*/
+
 
   localStorage.setItem("project",JSON.stringify(arr));
-});
 
-});
+  
+   
+    })
+  }
+  
+);
+
+
+function useTask() {
+  $(".hour").each(function () {
+    var currHour = $(this).text();
+    var currTask = localStorage.getItem(currHour);
+
+    if (currTask !== null) {
+     // $(this).siblings("textarea").val(currTask);
+     $(this).saveproject;
+    }
+  });
+}
+useTask();
+
+/*function savetopage(){
+  $(".hour").each(function () {
+    var currHour = $(this).text();
+    var currTask = localStorage.getItem(currHour);
+
+    if (currTask!== null) {
+      $(this).siblings(".description").val(currTask);
+     } ;
+  }}
+savetopage();*/
+
